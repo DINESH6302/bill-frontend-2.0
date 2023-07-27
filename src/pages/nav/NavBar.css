@@ -1,0 +1,45 @@
+.navigation {
+    display        : flex;
+    height         : 80px;
+    padding        : 0 80px;
+    font-weight    : 700;
+    letter-spacing : .9px;
+    justify-content: space-between;
+    position       : sticky;
+    top            : 0;
+    transition     : box-shadow .7s ease;
+    z-index        : 100;
+}
+
+.scroll {
+    background-color: #e6e6e6;
+    box-shadow      : 4px 4px 15px #acacac;
+    transition      : box-shadow  .5s ease;
+}
+
+.logo {
+    align-self: center;
+}
+
+.nav-links {
+    display    : flex;
+    align-items: center;
+}
+
+.nav-links li {
+    list-style : none;
+    margin-left: 30px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color          : black;
+}
+
+.nav-links li a:hover {
+    color: #068fff;
+}
+
+.activeLink {
+    color: #068fff;
+}

@@ -1,0 +1,132 @@
+.invoice-container {
+    width : 1000px;
+    margin: auto;
+    height: calc(150vh - 10px);
+}
+
+.invoice-table {
+    display       : flex;
+    flex-direction: column;
+}
+
+.table-header,
+.table-card {
+    display                  : flex;
+    height                   : 60px;
+    padding                  : 0 25px;
+    align-items              : center;
+    width                    : inherit;
+    border-radius            : 13px;
+    font-weight              : 600;
+    background-color         : #9bd2ff;
+    /* background-color      : #6abcff; */
+    justify-content          : space-between;
+}
+
+.table-header span:nth-child(1),
+.table-card span:nth-child(1) {
+    margin-right: -50px;
+}
+
+.table-header span:nth-child(2),
+.table-card span:nth-child(2) {
+    margin-right: -20px;
+}
+
+.table-card {
+    height          : 52px;
+    margin          : 25px 0;
+    cursor          : pointer;
+    background-color: rgb(245, 245, 245);
+    border          : 2px solid rgb(245, 245, 245);
+    box-shadow      : 5px 8px 8px rgb(209, 209, 209);
+}
+
+.table-card:hover {
+    border      : 2px solid;
+    border-color: #6abcff;
+}
+
+
+.invoice-action {
+    display        : flex;
+    justify-content: space-between;
+    margin         : 30px 0 50px 0;
+}
+
+/* Search Box */
+
+.invoice-search {
+    width          : 200px;
+    height         : 40px;
+    display        : flex;
+    border-radius  : 15px;
+    align-items    : center;
+    padding        : 0 20px;
+    justify-content: space-between;
+    border         : 3px solid #6abcff;
+    box-shadow     : 0px 5px 20px rgba(0, 0, 0, 0.25);
+}
+
+.search-input {
+    width           : 100%;
+    height          : 80%;
+    border          : none;
+    font-size       : 16px;
+    background-color: inherit;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.search-icon:hover {
+    cursor: pointer;
+}
+
+/* Drop Down */
+.select-company {
+    height  : 40px;
+    width   : 250px;
+    position: relative;
+
+}
+
+.select-company .drop-down {
+    top             : 0;
+    left            : 0;
+    border-radius   : 15px;
+    font-size       : 16px;
+    width           : 100%;
+    height          : 100%;
+    padding         : 0 20px;
+    outline         : none;
+    background-color: inherit;
+    cursor          : pointer;
+    position        : absolute;
+    border          : 3px solid #6abcff;
+    box-shadow      : 0px 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.select-company .options {
+    left            : 2px;
+    border-radius   : 10px;
+    top             : 50px;
+    width           : 290px;
+    overflow-y      : scroll;
+    height          : fit-content;
+    max-height      : 150px;
+    background-color: #fff;
+    position        : absolute;
+    box-shadow      : 0px 30px 30px rgba(0, 0, 0, 0.05);
+}
+
+.options div {
+    padding      : 10px 20px;
+    border-radius: 10px;
+}
+
+.options div:hover {
+    cursor          : pointer;
+    background-color: #9bd2ff;
+}

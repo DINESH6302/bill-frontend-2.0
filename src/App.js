@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "./pages/nav/NavBar";
-import InvoicePage from "./pages/invoice/InvoicePage"
+import InvoicePage from "./pages/invoice/InvoicePage";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -13,6 +13,7 @@ function App() {
           <Route path="/" element={<></>} />
           <Route path="/dashboard" element={<></>} />
           <Route path="/invoices" element={<InvoicePage />} />
+          <Route path="/invoices/id/:id" element={<InvoicePage />} />
           <Route path="/products" element={""} />
           <Route path="/companies" element={""} />
           <Route path="/profile" element={""} />

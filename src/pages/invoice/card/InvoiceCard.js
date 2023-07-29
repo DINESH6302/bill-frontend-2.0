@@ -1,5 +1,5 @@
 import React from "react";
-import "./InvoicePage.css"
+import "../InvoicePage.css";
 
 export default function InvoiceCard() {
   return (

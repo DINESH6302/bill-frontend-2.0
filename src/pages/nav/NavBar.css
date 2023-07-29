@@ -14,7 +14,7 @@
 .scroll {
     background-color: #e6e6e6;
     box-shadow      : 4px 4px 15px #acacac;
-    transition      : box-shadow  .5s ease;
+    transition      : box-shadow .5s ease;
 }
 
 .logo {
@@ -26,20 +26,123 @@
     align-items: center;
 }
 
-.nav-links li {
+.nav-links ul {
+    display: flex;
+}
+
+.nav-links ul li {
     list-style : none;
     margin-left: 30px;
 }
 
-.nav-links li a {
+.nav-links ul li a {
     text-decoration: none;
     color          : black;
 }
 
-.nav-links li a:hover {
+.nav-links ul li a:hover {
     color: #068fff;
 }
 
 .activeLink {
     color: #068fff;
+}
+
+/* Drop Down */
+.select-company {
+    height      : 30px;
+    width       : 200px;
+    position    : relative;
+    margin-right: 30px;
+}
+
+.select-company input:hover {
+    cursor: pointer;
+}
+
+.select-company .dropdown {
+    top             : 0;
+    left            : 0;
+    border-radius   : 10px;
+    font-size       : 14px;
+    width           : 100%;
+    height          : 100%;
+    padding         : 0 20px;
+    outline         : none;
+    background-color: inherit;
+    position        : absolute;
+    border          : 2px solid #EEEDED;
+    box-shadow      : 0px 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.select-company .options {
+    border-radius   : 10px;
+    top             : 40px;
+    width           : 240px;
+    max-height      : 110px;
+    display         : none;
+    overflow-y      : scroll;
+    background-color: #EEEDED;
+    position        : absolute;
+    height          : fit-content;
+    box-shadow      : 0px 30px 30px rgba(0, 0, 0, 0.1);
+}
+
+.options div {
+    font-weight  : normal;
+    padding      : 8px 20px;
+    border-radius: 10px;
+}
+
+.options div:hover {
+    cursor          : pointer;
+    background-color: #cde9ff;
+}
+
+.select-company .dropdown-icon svg {
+    left      : 100%;
+    transition: all .4s ease;
+    position  : relative;
+}
+
+.select-company .dropdown-icon:hover {
+    cursor: pointer;
+}
+
+/* Toggle drop down */
+.dropdown-active .dropdown-icon svg {
+    transform: rotate(180deg);
+}
+
+.dropdown-active .options {
+    display: block;
+}
+
+/* scroll bar */
+.options::-webkit-scrollbar {
+    display: block;
+    width  : 8px;
+}
+
+.options::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.options::-webkit-scrollbar-thumb {
+    background-color: #a7a7a7cc;
+    border-radius   : 20px;
+}
+
+.options::-webkit-scrollbar-track-piece:end {
+    background   : transparent;
+    margin-bottom: 10px;
+}
+
+.options::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+    margin-top: 10px;
+}
+
+.dropdown:focus {
+    border: 2px solid #6abcff;
 }

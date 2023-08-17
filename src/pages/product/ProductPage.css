@@ -1,0 +1,160 @@
+.product-container {
+    width         : 1000px;
+    margin        : auto;
+    display       : flex;
+    row-gap       : 25px;
+    padding       : 30px;
+    flex-direction: column;
+}
+
+/* Header & Button */
+
+.product-container-top {
+    display        : flex;
+    align-items    : center;
+    justify-content: space-between;
+}
+
+.product-heading {
+    font-size  : 1.3rem;
+    font-weight: 600;
+}
+
+.product-add-button {
+    border       : 1px solid #068fff;
+    display      : flex;
+    padding      : 5px 10px;
+    font-size    : .85rem;
+    transition   : all .3s ease;
+    user-select  : none;
+    border-radius: 7px;
+}
+
+.product-add-button:hover {
+    cursor          : pointer;
+    border          : 1px solid transparent;
+    background-color: #9bd2ff;
+}
+
+/* Products */
+
+.products {
+    width                : 100%;
+    display              : grid;
+    grid-gap             : 20px;
+    grid-auto-flow       : row;
+    grid-template-columns: repeat(auto-fill, minmax(1fr));
+
+}
+
+.product {
+    height        : 80px;
+    display       : flex;
+    row-gap       : 40px;
+    overflow-y    : hidden;
+    background    : #fff;
+    transition    : all .5s ease-in-out;
+    border-radius : 10px;
+    flex-direction: column;
+}
+
+/* Header */
+.product-header {
+    display              : grid;
+    margin-top           : 20px;
+    text-align           : center;
+    grid-auto-flow       : column;
+    grid-template-columns: 1fr 4fr 3fr 3fr 3fr 1fr;
+}
+
+.expand-button {
+    margin    : auto;
+    cursor    : pointer;
+    display   : flex;
+    transition: all .3s ease;
+}
+
+/* Variant */
+.product-variants {
+    width              : 95%;
+    margin             : auto;
+    border-radius      : 10px;
+    /* margin-bottom   : 30px; */
+    background-color   : #f1f1f1;
+}
+
+.variant-header {
+    color                : #898989;
+    margin               : 20px 0;
+    display              : grid;
+    font-size            : 15px;
+    text-align           : center;
+    grid-auto-flow       : column;
+    grid-template-columns: 1fr 2fr 2fr 3fr 1fr
+}
+
+.variant {
+    font-size            : 15px;
+    display              : grid;
+    text-align           : center;
+    font-weight          : 600;
+    margin-bottom        : 15px;
+    grid-auto-flow       : column;
+    grid-template-columns: 1fr 2fr 2fr 3fr 1fr
+}
+
+/* Buttons */
+.product-buttons {
+    color          : #898989;
+    margin         : 0 20px 10px 0;
+    display        : flex;
+    column-gap     : 10px;
+    align-items    : center;
+    justify-content: flex-end;
+}
+
+.product-buttons .product-button-edit:hover,
+.product-buttons .product-button-delete:hover {
+    cursor: pointer;
+    color : #068fff;
+}
+
+.product-buttons .product-button-separator {
+    font-size: 20px;
+}
+
+.expand {
+    height: fit-content;
+}
+
+.expand .expand-button {
+    transform: rotate(180deg);
+}
+
+/* delete box */
+.delete-container {
+    color           : #000;
+    width           : 30%;
+    margin          : auto;
+    border-radius   : 7px;
+    background-color: #fff;
+}
+
+.delete-container .text {
+    padding: 20px 10px;
+}
+
+.delete-container .delete-buttons {
+    display        : flex;
+    font-size      : .9rem;
+    justify-content: flex-end;
+}
+
+.delete-buttons * {
+    margin: 0 20px 15px 0;
+}
+
+.delete-buttons *:hover {
+    cursor: pointer;
+    color : #068fff;
+}

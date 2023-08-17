@@ -1,3 +1,9 @@
+.table-rows a {
+    color          : inherit;
+    font-size      : 14px;
+    text-decoration: none;
+}
+
 .invoice-container {
     width     : 1000px;
     margin    : auto;
@@ -5,15 +11,13 @@
     /* height : calc(100% - 10px); */
 }
 
-.invoice-table {
-    display       : flex;
-    flex-direction: column;
+.table-header {
+    /* box-shadow : 0px 5px 20px rgba(0, 0, 0, 0.15); */
+    font-weight: 600;
+    box-shadow : 0px 5px 10px rgb(209, 209, 209);
 }
 
-.table-header {
-    /* box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15); */
-    box-shadow: 0px 5px 10px rgb(209, 209, 209);
-}
+/* 
 
 .table-header,
 .table-card {
@@ -23,9 +27,8 @@
     align-items              : center;
     width                    : inherit;
     border-radius            : 13px;
-    font-weight              : 600;
     background-color         : #9bd2ff;
-    /* background-color      : #6abcff; */
+    background-color      : #6abcff;
     justify-content          : space-between;
 }
 
@@ -37,15 +40,28 @@
 .table-header span:nth-child(2),
 .table-card span:nth-child(2) {
     margin-right: -20px;
+} */
+
+.table-header,
+.table-card {
+    height                  : 60px;
+    display                 : grid;
+    text-align              : center;
+    align-items             : center;
+    border-radius           : 13px;
+    grid-auto-flow          : column;
+    background-color        : #9bd2ff;
+    grid-template-columns   : 10% 15% 20% 25% 15% 15%;
+    /* grid-template-columns: 1fr 1fr 1fr 2fr 1fr 1fr; */
 }
 
 .table-card {
     height          : 52px;
     margin          : 25px 0;
     cursor          : pointer;
-    background-color: rgb(245, 245, 245);
     border          : 2px solid rgb(245, 245, 245);
     box-shadow      : 5px 8px 8px rgb(209, 209, 209);
+    background-color: rgb(245, 245, 245);
 }
 
 .table-card:hover {
@@ -55,9 +71,9 @@
 
 
 .invoice-action {
+    margin         : 30px 0 50px 0;
     display        : flex;
     justify-content: space-between;
-    margin         : 30px 0 50px 0;
 }
 
 /* Search Box */
@@ -65,13 +81,13 @@
 .invoice-search {
     width          : 200px;
     height         : 40px;
-    display        : flex;
-    border-radius  : 15px;
-    align-items    : center;
-    padding        : 0 20px;
     border         : 2px solid #EEEDED;
-    justify-content: space-between;
+    display        : flex;
+    padding        : 0 20px;
     box-shadow     : 0px 5px 20px rgba(0, 0, 0, 0.15);
+    align-items    : center;
+    border-radius  : 15px;
+    justify-content: space-between;
 }
 
 .search-input {
@@ -102,15 +118,15 @@
 
 /* Add button */
 .invoice-add-button {
+    cursor          : pointer;
     display         : flex;
     padding         : 0 15px;
-    cursor          : pointer;
-    margin-left     : 10px;
-    align-items     : center;
     box-shadow      : 0px 5px 20px rgba(0, 0, 0, 0.15);
+    visibility      : hidden;
+    align-items     : center;
+    margin-left     : 10px;
     border-radius   : 10px;
     background-color: #9bd2ff;
-    visibility      : hidden;
 }
 
 .invoice-add-button span {
@@ -119,7 +135,18 @@
 }
 
 .invoice-add {
-    position: fixed;
-    bottom  : 10%;
     right   : 6%;
+    bottom  : 10%;
+    position: fixed;
+}
+
+/* Pagination */
+.invoice-container .pagination {
+    display        : flex;
+    justify-content: center;
+}
+
+/* MUI - pagination button */
+.css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+    background-color: #9bd2ff !important;
 }

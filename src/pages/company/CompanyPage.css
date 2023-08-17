@@ -1,0 +1,105 @@
+.company-container {
+    width         : 1000px;
+    margin        : auto;
+    display       : flex;
+    row-gap       : 25px;
+    padding       : 30px;
+    flex-direction: column;
+}
+
+/* Header */
+.company-header {
+    display        : flex;
+    justify-content: space-between;
+}
+
+.company-header .company-header_text {
+    font-size  : 1.2rem;
+    font-weight: 700;
+}
+
+.company-header_button {
+    border       : 1px solid #068fff;
+    padding      : 5px 10px;
+    display      : flex;
+    font-size    : .85rem;
+    transition   : all .3s ease;
+    align-items  : center;
+    user-select  : none;
+    border-radius: 7px;
+}
+
+.company-header_button:hover {
+    cursor          : pointer;
+    border          : 1px solid transparent;
+    background-color: #9bd2ff;
+}
+
+/* company card */
+
+.companies {
+    gap                  : 40px;
+    width                : 100%;
+    display              : grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.company {
+    border          : 1px solid transparent;
+    display         : flex;
+    padding         : 30px 0 15px 0;
+    row-gap         : 30px;
+    border-radius   : 10px;
+    flex-direction  : column;
+    background-color: #fff;
+}
+
+.row-1,
+.row-2,
+.row-3 {
+    display: flex;
+}
+
+.company-row {
+    width: 100%;
+}
+
+.company:hover {
+    border: 1px solid #068fff;
+    cursor: pointer;
+}
+
+.company .company-row {
+    padding-left: 50px;
+}
+
+.company-row .row-label {
+    color      : #878787;
+    font-size  : .8rem;
+    font-weight: 300;
+}
+
+[class^="row-content-"] {
+    font-weight: 500;
+}
+
+/* Buttons */
+.company-btns {
+    color          : #898989;
+    display        : flex;
+    column-gap     : 10px;
+    align-items    : center;
+    padding-right  : 30px;
+    justify-content: flex-end;
+}
+
+.company-btns .company-button-separator {
+    font-size  : 1.2rem;
+    align-items: center;
+}
+
+.company-btns .company-button-edit:hover,
+.company-btns .company-button-delete:hover {
+    cursor: pointer;
+    color : #068fff;
+}

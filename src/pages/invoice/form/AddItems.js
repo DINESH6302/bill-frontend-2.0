@@ -8,7 +8,8 @@ export default function AddItems(props) {
         <div className="column">
           <label htmlFor="product">Product</label>
           <input
-            defaultValue={props.itemDetails.product}
+            autoComplete="off"
+            value={props.itemDetails.product}
             type="text"
             id="product"
             name="product"
@@ -20,7 +21,8 @@ export default function AddItems(props) {
         <div className="column">
           <label htmlFor="variant">Variant</label>
           <input
-            defaultValue={props.itemDetails.variant}
+            autoComplete="off"
+            value={props.itemDetails.variant}
             type="text"
             id="variant"
             name="variant"
@@ -32,7 +34,8 @@ export default function AddItems(props) {
         <div className="column">
           <label htmlFor="quantity">Quantity</label>
           <input
-            defaultValue={props.itemDetails.quantity}
+            autoComplete="off"
+            value={props.itemDetails.quantity}
             type="text"
             id="quantity"
             name="quantity"
@@ -44,7 +47,8 @@ export default function AddItems(props) {
         <div className="column">
           <label htmlFor="qty-price">Price pre Qty</label>
           <input
-            defaultValue={props.itemDetails.pricePerQty}
+            autoComplete="off"
+            value={props.itemDetails.pricePerQty}
             type="text"
             id="qty-price"
             name="pricePerQty"
@@ -56,7 +60,8 @@ export default function AddItems(props) {
         <div className="column">
           <label htmlFor="hsn">HSN Code</label>
           <input
-            defaultValue={props.itemDetails.hsnCode}
+            autoComplete="off"
+            value={props.itemDetails.hsnCode}
             type="text"
             id="hsn"
             name="hsnCode"
@@ -68,7 +73,8 @@ export default function AddItems(props) {
         <div className="column">
           <label htmlFor="total">Total</label>
           <input
-            defaultValue={props.itemDetails.total}
+            autoComplete="off"
+            value={props.itemDetails.total}
             type="text"
             id="total"
             name="total"
@@ -81,7 +87,9 @@ export default function AddItems(props) {
           className="column delete-button"
           onClick={() => props.deleteItemHandler(props.itemDetails.id)}
         >
-          <DeleteOutlineIcon sx={{ fontSize: 28 }} />
+          {props.itemsSize.length > 1 && (
+            <DeleteOutlineIcon sx={{ fontSize: 28 }} />
+          )}
         </div>
       </div>
     </div>

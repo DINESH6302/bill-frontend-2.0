@@ -6,21 +6,72 @@ import "./CreateInvoice.css";
 import { Button } from "@mui/material";
 
 export default function CreateInvoice(props) {
-  let {
-    formOpenHandler,
-    formData,
-    setFormData,
-    item,
-    setItem,
-    addItemHandler,
-    productChangeHandler,
-  } = props;
+  let { formOpenHandler } = props;
+
+  // New Invoice Product Form Values
+  const [item, setItem] = useState([
+    {
+      id: uuid(),
+      product: "",
+      variant: "",
+      quantity: 0,
+      pricePerQty: 0,
+      hsnCode: 0,
+      total: 0,
+    },
+  ]);
+
+  // New Invoice From Values
+  const [invoiceFormData, setInvoiceFormData] = useState({
+    fromStreetAddress: "",
+    fromCity: "",
+    fromState: "",
+    frompinCode: "",
+    accountNo: "",
+    holderName: "",
+    ifscCode: "",
+
+    buyerName: "",
+    date: "",
+    toStreetAddress: "",
+    toCity: "",
+    toState: "",
+    topinCode: "",
+    gstNo: "",
+    stateCode: "",
+
+    items: item,
+  });
+
+  // add new item handler
+  let addItemHandler = () => {
+    setItem((item) => [
+      ...item,
+      {
+        product: "",
+        variant: "",
+        quantity: 0,
+        pricePerQty: 0,
+        hsnCode: 0,
+        total: 0,
+        id: uuid(),
+      },
+    ]);
+  };
 
   // product delete handler
   const deleteItemHandler = (id) => {
-    setItem((pervState) => pervState.filter((el) => el.id !== id));
+    setItem((prev) => prev.filter((ele) => ele.id !== id));
   };
 
+  // item input change handler
+  const itemChangeHandler = (id, e) => {
+    let data = [...item];
+
+    let foundData = data.find((el) => el.id === id);
+    foundData[e.target.name] = e.target.value;
+    setItem(data);
+  };
   return (
     <div className="add-form">
       <div className="header">
@@ -36,12 +87,13 @@ export default function CreateInvoice(props) {
             <div className="column">
               <label htmlFor="from-street-address">Street Address</label>
               <input
+                autoComplete="off-random"
                 className="add-invoice-form_input"
                 type="text"
-                defaultValue={formData.fromStreetAddress}
+                defaultValue={invoiceFormData.fromStreetAddress}
                 id="from-street-address"
                 onChange={(e) =>
-                  setFormData((prevValue) => {
+                  setInvoiceFormData((prevValue) => {
                     prevValue.fromStreetAddress = e.target.value;
                     return prevValue;
                   })
@@ -53,12 +105,13 @@ export default function CreateInvoice(props) {
             <div className="column">
               <label htmlFor="city">City</label>
               <input
+                autoComplete="off-random"
                 className="add-invoice-form_input"
                 type="text"
-                defaultValue={formData.fromCity}
+                defaultValue={invoiceFormData.fromCity}
                 id="city"
                 onChange={(e) =>
-                  setFormData((prevValue) => {
+                  setInvoiceFormData((prevValue) => {
                     prevValue.fromCity = e.target.value;
                     return prevValue;
                   })
@@ -68,12 +121,13 @@ export default function CreateInvoice(props) {
             <div className="column">
               <label htmlFor="state">State</label>
               <input
+                autoComplete="off-random"
                 className="add-invoice-form_input"
                 type="text"
-                defaultValue={formData.fromState}
+                defaultValue={invoiceFormData.fromState}
                 id="state"
                 onChange={(e) =>
-                  setFormData((prevValue) => {
+                  setInvoiceFormData((prevValue) => {
                     prevValue.fromState = e.target.value;
                     return prevValue;
                   })
@@ -83,12 +137,13 @@ export default function CreateInvoice(props) {
             <div className="column">
               <label htmlFor="from-pincode">Pin Code</label>
               <input
+                autoComplete="off-random"
                 className="add-invoice-form_input"
-                defaultValue={formData.frompinCode}
+                defaultValue={invoiceFormData.frompinCode}
                 type="text"
                 id="from-pincode"
                 onChange={(e) =>
-                  setFormData((prevValue) => {
+                  setInvoiceFormData((prevValue) => {
                     prevValue.frompinCode = e.target.value;
                     return prevValue;
                   })
@@ -100,12 +155,13 @@ export default function CreateInvoice(props) {
             <div className="column">
               <label htmlFor="acc-no">Bank Account Number</label>
               <input
+                autoComplete="off-random"
                 className="add-invoice-form_input"
-                defaultValue={formData.accountNo}
+                defaultValue={invoiceFormData.accountNo}
                 type="text"
                 id="acc-no"
                 onChange={(e) =>
-                  setFormData((prevValue) => {
+                  setInvoiceFormData((prevValue) => {
                     prevValue.accountNo = e.target.value;
                     return prevValue;
                   })
@@ -115,12 +171,13 @@ export default function CreateInvoice(props) {
             <div className="column">
               <label htmlFor="holder-name">Holder Name</label>
               <input
+                autoComplete="off-random"
                 className="add-invoice-form_input"
-                defaultValue={formData.holderName}
+                defaultValue={invoiceFormData.holderName}
                 type="text"
                 id="holder-name"
                 onChange={(e) =>
-                  setFormData((prevValue) => {
+                  setInvoiceFormData((prevValue) => {
                     prevValue.holderName = e.target.value;
                     return prevValue;
                   })
@@ -130,12 +187,13 @@ export default function CreateInvoice(props) {
             <div className="column">
               <label htmlFor="ifsc">IFSC Code</label>
               <input
+                autoComplete="off-random"
                 className="add-invoice-form_input"
-                defaultValue={formData.ifscCode}
+                defaultValue={invoiceFormData.ifscCode}
                 type="text"
                 id="ifsc"
                 onChange={(e) =>
-                  setFormData((prevValue) => {
+                  setInvoiceFormData((prevValue) => {
                     prevValue.ifscCode = e.target.value;
                     return prevValue;
                   })
@@ -152,12 +210,13 @@ export default function CreateInvoice(props) {
             <div className="column">
               <label htmlFor="buyer-name">Buyer Name</label>
               <input
+                autoComplete="off-random"
                 className="add-invoice-form_input"
-                defaultValue={formData.buyerName}
+                defaultValue={invoiceFormData.buyerName}
                 type="text"
                 id="buyer-name"
                 onChange={(e) =>
-                  setFormData((prevValue) => {
+                  setInvoiceFormData((prevValue) => {
                     prevValue.buyerName = e.target.value;
                     return prevValue;
                   })
@@ -167,12 +226,13 @@ export default function CreateInvoice(props) {
             <div className="column">
               <label htmlFor="date">Date</label>
               <input
+                autoComplete="off-random"
                 className="add-invoice-form_input"
-                defaultValue={formData.date}
+                defaultValue={invoiceFormData.date}
                 type="text"
                 id="date"
                 onChange={(e) =>
-                  setFormData((prevValue) => {
+                  setInvoiceFormData((prevValue) => {
                     prevValue.date = e.target.value;
                     return prevValue;
                   })
@@ -184,12 +244,13 @@ export default function CreateInvoice(props) {
             <div className="column">
               <label htmlFor="to-street-address">Street Address</label>
               <input
+                autoComplete="off-random"
                 className="add-invoice-form_input"
-                defaultValue={formData.toStreetAddress}
+                defaultValue={invoiceFormData.toStreetAddress}
                 type="text"
                 id="to-street-address"
                 onChange={(e) =>
-                  setFormData((prevValue) => {
+                  setInvoiceFormData((prevValue) => {
                     prevValue.toStreetAddress = e.target.value;
                     return prevValue;
                   })
@@ -201,12 +262,13 @@ export default function CreateInvoice(props) {
             <div className="column">
               <label htmlFor="to-city">City</label>
               <input
+                autoComplete="off-random"
                 className="add-invoice-form_input"
-                defaultValue={formData.toCity}
+                defaultValue={invoiceFormData.toCity}
                 type="text"
                 id="to-city"
                 onChange={(e) =>
-                  setFormData((prevValue) => {
+                  setInvoiceFormData((prevValue) => {
                     prevValue.toCity = e.target.value;
                     return prevValue;
                   })
@@ -216,12 +278,13 @@ export default function CreateInvoice(props) {
             <div className="column">
               <label htmlFor="to-state">State</label>
               <input
+                autoComplete="off-random"
                 className="add-invoice-form_input"
-                defaultValue={formData.toState}
+                defaultValue={invoiceFormData.toState}
                 type="text"
                 id="to-state"
                 onChange={(e) =>
-                  setFormData((prevValue) => {
+                  setInvoiceFormData((prevValue) => {
                     prevValue.toState = e.target.value;
                     return prevValue;
                   })
@@ -231,12 +294,13 @@ export default function CreateInvoice(props) {
             <div className="column">
               <label htmlFor="to-pincode">Pin Code</label>
               <input
+                autoComplete="off-random"
                 className="add-invoice-form_input"
-                defaultValue={formData.topinCode}
+                defaultValue={invoiceFormData.topinCode}
                 type="text"
                 id="to-pincode"
                 onChange={(e) =>
-                  setFormData((prevValue) => {
+                  setInvoiceFormData((prevValue) => {
                     prevValue.topinCode = e.target.value;
                     return prevValue;
                   })
@@ -248,12 +312,13 @@ export default function CreateInvoice(props) {
             <div className="column">
               <label htmlFor="to-gst">GST No</label>
               <input
+                autoComplete="off-random"
                 className="add-invoice-form_input"
-                defaultValue={formData.gstNo}
+                defaultValue={invoiceFormData.gstNo}
                 type="text"
                 id="to-gst"
                 onChange={(e) =>
-                  setFormData((prevValue) => {
+                  setInvoiceFormData((prevValue) => {
                     prevValue.gstNo = e.target.value;
                     return prevValue;
                   })
@@ -263,12 +328,13 @@ export default function CreateInvoice(props) {
             <div className="column">
               <label htmlFor="state-code">State Code</label>
               <input
+                autoComplete="off-random"
                 className="add-invoice-form_input"
-                defaultValue={formData.stateCode}
+                defaultValue={invoiceFormData.stateCode}
                 type="text"
                 id="state-code"
                 onChange={(e) =>
-                  setFormData((prevValue) => {
+                  setInvoiceFormData((prevValue) => {
                     prevValue.stateCode = e.target.value;
                     return prevValue;
                   })
@@ -284,9 +350,10 @@ export default function CreateInvoice(props) {
           {item.map((itemDetails, index) => (
             <AddItems
               key={index}
+              itemsSize={item}
               itemDetails={itemDetails}
               deleteItemHandler={deleteItemHandler}
-              productChangeHandler={productChangeHandler}
+              itemChangeHandler={itemChangeHandler}
             />
           ))}
           <hr />

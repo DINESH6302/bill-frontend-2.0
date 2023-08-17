@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;400;500;600;700;800&family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap'); */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,10 +7,11 @@
 html,
 body,
 #root {
-  padding         : 0;
-  margin          : 0;
-  background-color: #EEEDED;
-  font-family     : "Source Sans Pro", sans-serif;
+  padding               : 0;
+  margin                : 0;
+  background-color      : #EEEDED;
+  font-family           : "Poppins", sans-serif;
+  /* font-family        : "League Spartan", sans-serif; */
 }
 
 ::-webkit-scrollbar {
@@ -44,4 +46,16 @@ blue: {
           800: "#023966",
           900: "#011d33"
 },
+
+white: {
+    100: "#ffffcc",
+    200: "#ffff99",
+    300: "#ffff66",
+    400: "#ffff33",
+    500: "#ffff00",
+    600: "#cccc00",
+    700: "#999900",
+    800: "#666600",
+    900: "#333300"
+  },
 */
